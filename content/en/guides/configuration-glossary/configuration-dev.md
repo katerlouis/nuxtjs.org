@@ -10,11 +10,12 @@ position: 6
 - Default: `true`
 
 > Define the development or production mode of Nuxt.js.
+> `console.log()`s are visibile when set to `true`
 
-This property is overwritten by the nuxt commands:
+This property has defaults set by the nuxt commands:
 
-- `dev` is forced to `true` with `nuxt`
-- `dev` is forced to `false` with `nuxt build`, `nuxt start` and `nuxt generate`
+- `dev` defaults to `true` with `$ nuxt`
+- `dev` defaults to `false` with `$ nuxt build`, `$ nuxt start` and `$ nuxt generate`
 
 This property should be used when using [Nuxt.js programmatically](/docs/2.x/internals-glossary/nuxt):
 
@@ -52,5 +53,12 @@ app.listen(port, '0.0.0.0').then(() => {
     "build": "nuxt build",
     "start": "NODE_ENV=production node server.js"
   }
+}
+```
+
+```js[nuxt.config.js]
+export default {
+  // enables console.log in production builds (don't forget to remove when actually going live)
+  dev: true,
 }
 ```
